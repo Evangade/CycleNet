@@ -1,5 +1,5 @@
 model:
-  target: cycleNet.cycleNet.CycleLDM
+  target: cycleNet.cycleNet_v2.CycleLDM
   params:
     linear_start: 0.00085
     linear_end: 0.0120
@@ -9,7 +9,6 @@ model:
     first_stage_key: "jpg"
     cond_stage_key: "txt"
     uncond_stage_key: "source"
-    target_domain_key: "target"
     image_size: 64
     channels: 4
     cond_stage_trainable: false
@@ -23,6 +22,7 @@ model:
     disc_weight: 0.1
     disc_mode: eps
     consis_weight: 0.1
+    paired_weight: 0.5
 
     control_stage_config:
       target: cldm.cldm.ControlNet
